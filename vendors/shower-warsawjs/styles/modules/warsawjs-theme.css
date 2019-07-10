@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.full .progress {
+    border-color: transparent transparent #f7302f;
+}
+
+/* Hide top badge on each slide */
+.slide:after {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.slide h2 {
+    color: #f7302f;
+    font-weight: normal;
+}
+
+.slide h2.shout {
+    color: black;
+}
+
+.slide h2 small {
+    color: gray;
+    font-size: smaller;
+}
+
+.slide h2 em {
+    color: #f0db4f;
+    font-style: normal;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.slide kbd,
+.slide samp,
+.slide pre mark {
+    background-color: #f0db4f;
+}
+
+.slide b,
+.slide strong {
+    color: #f7302f;
+}
+
+.slide a {
+    color: #2380e6;
+}
+
+.slide pre mark.important {
+    background-color: #f7302f;
+}
+
+.slide.compact {
+    padding: 50px;
+}

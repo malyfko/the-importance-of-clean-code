@@ -1,0 +1,17 @@
+.inline {
+  display: flex;
+  align-items: center;
+}
+
+.inline > * {
+  margin-right: 0.4em;
+}
+
+.light {
+  font-size: 0.8em;
+  color: #666666;
+}
+
+li > p {
+  margin-left: 2.1em;
+}

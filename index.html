@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Importance of Clean Code</title>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="images/icons/warsawjs-logo-transparent-32x32.png" rel="icon" type="image/png" sizes="32x32"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,900&amp;subset=latin-ext" rel="stylesheet"/>
+
+    <!-- Shower Theme -->
+    <link rel="stylesheet" href="vendors/shower-ribbon/styles/screen-16x9.css"/>
+    <link rel="stylesheet" href="vendors/shower-warsawjs/styles/main.css"/>
+
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="vendors/prism/prism.css"/>
+    <link rel="stylesheet" href="vendors/prism/custom-prism.css"/>
+
+    <!-- Other -->
+    <link rel="stylesheet" href="styles/main.css"/>
+</head>
+<body class="shower list">
+    <header class="caption">
+        <h1>The Importance of Clean Code</h1>
+    </header>
+
+    <section class="slide front-page">
+        <div class="logo">
+            <!-- Logo WarsawJS -->
+            <img src="vendors/shower-warsawjs/images/logo.svg" width="350" alt=""/>
+        </div>
+        <div class="details">
+            <!-- 1. Avatar -->
+            <img src="images/my-avatar.jpg" alt="Speaker"/>
+
+            <!-- 2. Speaker -->
+            <h2>Tetiana Platonova</h2>
+            <div class="inline">
+                <h3 class="light">Developer at</h3>
+                <img src="images/ethworks-logo.svg" alt="EthWorks"/>
+                <h3 class="light">& <strong>WarsawJS</strong> volunteer</h3>
+            </div>
+
+            <!-- 3. Presentation title -->
+            <h2><strong>"The Importance of Clean Code" [EN]</strong></h2>
+
+            <!-- 4. Presentation date -->
+            <h2>2019-07-10</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/book_cover_clean_code.jpg" width="300" alt=""/>
+    </section>
+
+    <section class="slide compact">
+        <h2>Agenda</h2>
+        <ol>
+            <li>Why bother?</li>
+            <li>Naming</li>
+            <li>Functions</li>
+            <li>Classes</li>
+            <li>Comments</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/good-bad-code.jpg" width="480" height="360" alt=""/>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/ugly-house.png" width="350" alt=""/>
+        <img class="cover next" src="images/pretty-house.jpg" width="480"alt=""/>
+    </section>
+
+    <section class="slide">
+        <h3><strong>The Boy Scout Rule:</strong></h3>
+        <h3>Leave the campground cleaner than you found it</h3>
+        <img class="cover" src="images/campfire.png" width="500" alt=""/>
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul class="next">
+            <li>
+                Use intention-revealing names
+                <pre class="language-javascript line-numbers">
+                    <code>
+                        ❌ const d = new Date();
+                    </code>
+                </pre>
+
+                <pre class="language-javascript line-numbers next">
+                    <code>
+                        ✅ const date = new Date();
+                    </code>
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+            <li>
+                Avoid disinformation
+                <pre class="language-javascript line-numbers">
+                    <code>
+                        ❌ const dc;
+                    </code>
+                </pre>
+
+                <pre class="language-javascript line-numbers next">
+                    <code>
+                        ✅ const daysCounter;
+                    </code>
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+            <li>
+                Make meaningful distinctions
+                <pre style="font-size: 14px;" class="language-javascript line-numbers">
+                    <code>
+                        {
+                            ❌ const date1 = new Date('2014-09-16');
+                            ❌ const date2 = new Date();
+                        }
+                    </code>
+                </pre>
+
+                <pre style="font-size: 14px;" class="language-javascript line-numbers">
+                    <code>
+                        {
+                            ✅ const firstDate = new Date('2014-09-16');
+                            ✅ const currentDate = new Date();
+                        }
+                    </code>
+                </pre>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+            <li>
+                Use pronounceable names
+                <pre class="language-javascript line-numbers">
+                    <code>
+                        ❌ const crymdhms; // creation year, month, day, ...
+                    </code>
+                </pre>
+
+                <pre class="language-javascript line-numbers next">
+                    <code>
+                        ✅ const creationTimestamp;
+                    </code>
+                </pre>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+            <li>
+                Use nouns for class names
+                <p class="note">Dog</p>
+            </li>
+            <li class="next">
+                Use verbs for methods names
+                <p class="note">Dog.bark()</p>
+                <p class="note next">Use <i>get</i>, <i>set</i>, <i>is</i> for accessor, mutators and predicates</p>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+             <li>
+                Pick one word per concept (consistency)
+                <p class="note">✅ <i>UserController, TransactionController, WalletController</i></p>
+                <p class="note">❌ <i>UserController, TransactionDriver, WalletManager</i></p>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+            <li>
+                Use different names for semantically different methods
+                <pre class="language-javascript line-numbers">
+                    <code>
+                        {
+                            balance.add(2) // 2 + 2 = 4
+                            transactions.insert(2) // [2, 2]
+                        }
+                    </code>
+                </pre>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+          <li>
+              Use solution domain names
+              <p class="note">Computer science, math, algorithm terms, design patterns</p>
+
+              <pre class="language-javascript line-numbers">
+                    <code>
+                        ❌ CoinMarket
+                    </code>
+              </pre>
+
+              <pre class="language-javascript line-numbers">
+                    <code>
+                        ✅ CoinMarketAPI
+                    </code>
+              </pre>
+
+          </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+          <li>
+              Use problem domain names
+
+              <pre class="language-javascript line-numbers">
+                    <code>
+                        ❌ InterestForArtistPayment
+                    </code>
+              </pre>
+
+              <pre class="language-javascript line-numbers">
+                    <code>
+                        ✅ RoyaltyPayment
+                    </code>
+              </pre>
+
+          </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Naming</h2>
+
+        <ul>
+            <li>
+                Stick to English
+
+                <pre class="language-javascript line-numbers">
+                    <code>
+                        ✅ showModal()
+                    </code>
+              </pre>
+
+              <pre class="language-javascript line-numbers">
+                    <code>
+                        ❌ showOkienkoModalne()
+                    </code>
+              </pre>
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+
+        <ul>
+            <li class="next">
+                Be small
+                 <ul>
+                  <li class="next">Under 20 lines</li>
+                  <li class="next">One or two level of indentation</li>
+                </ul>
+            </li>
+            <li class="next">Do one thing</li>
+        </ul>
+
+        <h3 class="next">Solution: <strong>Decompose!</strong></h3>
+
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+
+        <ul>
+            <li>
+                Command-query separation
+            </li>
+            <pre style="font-size: 12px;" class="language-javascript line-numbers">
+                <code>
+                    ❌
+                    if (user.set('name', 'John')) { ... }
+                </code>
+            </pre>
+
+            <pre style="font-size: 12px;" class="language-javascript line-numbers">
+                <code>
+                    {
+                        ✅
+                        user.set('name', 'John');
+                        if (user.hasName()) { ... }
+                    }
+                </code>
+            </pre>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+
+        <ul>
+          <li>
+            Have no side effect
+                <pre style="font-size: 12px;" class="language-javascript line-numbers">
+                    <code>
+                        {
+                            function logIn (userName, password) {
+                                if (verifyPassword(userName, password)) {
+                                    setLoggedIn(userName);
+                                    ❌ redirectToProfile();
+                                } else {
+                                    showError('Incorrect credentials!')
+                                }
+                            }
+                    </code>
+                </pre>
+          </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+
+        <ul>
+          <li>
+            Have no side effect
+                <pre style="font-size: 12px;" class="language-javascript line-numbers">
+                    <code>
+                        {
+                            function logIn (userName, password) {
+                                if (verifyPassword(userName, password)) {
+                                    setLoggedIn(userName);
+                                } else {
+                                    showError('Incorrect credentials!')
+                                }
+                            }
+
+                            if(isLoggedIn()) {
+                                ✅ redirectToProfile()
+                            }
+                        }
+                    </code>
+                </pre>
+          </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+
+        <ul>
+            <li>
+                Arguments
+                <ul>
+                    <li class="next">As few arguments as possible</li>
+                    <li class="next">3 or more might be converted into object or list</li>
+                    <li class="next">Avoid flag arguments</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+        <ul>
+          <li>
+              Errors
+              <ul>
+                <li class="next">Prefer exceptions to returning error codes</li>
+                <li class="next">Error handling is one thing</li>
+                <li class="next">Extract try/catch blocks</li>
+              </ul>
+          </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+        <h3>DRY (Don't Repeat Yourself)</h3>
+        <img class="cover" style="top: 65%;" src="images/DRY_code.gif" width="480" alt=""/>
+    </section>
+
+    <section class="slide">
+        <h2>Classes</h2>
+
+        <ul>
+            <li class="next">Be small (responsibility-wise)</li>
+            <li class="next">Follow Single Responsibility Principle</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Comments</h2>
+
+        <ul class="next">
+            <li>Comments do not make up for the bad code</li>
+            <pre style="font-size: 20px;" class="language-javascript line-numbers">
+                <code>
+                    ❌
+                    // Check if the employee is eligible for benefits
+                    if (employee.hours === REQUIRED_HOURS && employee.age > 65)
+                </code>
+            </pre>
+
+            <pre style="font-size: 20px;" class="language-javascript line-numbers">
+                <code>
+                    ✅ if(employee.isEligibleForBenefits())
+                </code>
+            </pre>
+        </ul>
+
+    </section>
+
+    <section class="slide">
+        <h2>Comments</h2>
+        <ul>
+          <li>
+              Good comments:
+              <ul>
+                <li>Legal comments</li>
+                <li class="next">Explanation of intent</li>
+                  <li class="next">Warning comments</li>
+                  <li class="next">TODO comments</li>
+                  <li class="next">JSDOC comments</li>
+              </ul>
+          </li>
+
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Comments</h2>
+        <ul>
+          <li>
+              Bad comments:
+              <ul>
+                <li>Redundant comments</li>
+                <li class="next">Misplaced comments</li>
+                <li class="next">JSDOC in non-public code</li>
+              </ul>
+          </li>
+
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/sheldon-swim.jpg" width="500" alt=""/>
+    </section>
+
+    <section class="slide">
+        <h3 class="shout">Thank you!</h3>
+    </section>
+
+    <div class="progress"></div>
+
+    <footer class="badge badge-top-left">
+        <a href="#" class="fullscreen">Fullscreen</a>
+    </footer>
+
+    <script src="vendors/gamepad/gamepad.js"></script>
+    <script src="vendors/shower/shower.min.js"></script>
+    <script src="vendors/shower-gamepad/shower.gamepad.js"></script>
+    <script src="vendors/shower-warsawjs/scripts/fullscreen.js"></script>
+
+    <!-- Prism.js -->
+    <script src="vendors/prism/prism.js"></script>
+    <script src="vendors/prism/custom-prism.js"></script>
+</body>
+</html>
