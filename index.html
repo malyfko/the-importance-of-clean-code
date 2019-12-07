@@ -29,25 +29,27 @@
     <section class="slide front-page">
         <div class="logo">
             <!-- Logo WarsawJS -->
-            <img src="vendors/shower-warsawjs/images/logo.svg" width="350" alt=""/>
+            <img src="images/confrontjs_logo.png" width="350" alt=""/>
         </div>
         <div class="details">
             <!-- 1. Avatar -->
-            <img src="images/my-avatar.jpg" alt="Speaker"/>
+            <img src="images/my-avatar.jpg" width="230" alt="Speaker"/>
 
             <!-- 2. Speaker -->
             <h2>Tetiana Platonova</h2>
             <div class="inline">
                 <h3 class="light">Developer at</h3>
                 <img src="images/ethworks-logo.svg" alt="EthWorks"/>
-                <h3 class="light">& <strong>WarsawJS</strong> volunteer</h3>
+                <h3 class="light">&</h3>
+                <img style="margin-top: -14%;" src="images/warsawjs-logo.svg" width="80" alt="WarsawJS"/>
+                <h3 class="light">volunteer</h3>
             </div>
 
             <!-- 3. Presentation title -->
             <h2><strong>"The Importance of Clean Code" [EN]</strong></h2>
 
             <!-- 4. Presentation date -->
-            <h2>2019-07-10</h2>
+            <h2>2019-12-07</h2>
         </div>
     </section>
 
@@ -55,7 +57,7 @@
         <img class="cover" src="images/book_cover_clean_code.jpg" width="300" alt=""/>
     </section>
 
-    <section class="slide compact">
+    <section style="display: flex; flex-direction: column; align-items: center" class="slide compact">
         <h2>Agenda</h2>
         <ol>
             <li>Why bother?</li>
@@ -63,22 +65,33 @@
             <li>Functions</li>
             <li>Classes</li>
             <li>Comments</li>
+            <li>TDD</li>
+            <li>Team rules</li>
         </ol>
     </section>
 
-    <section class="slide">
-        <img class="cover" src="images/good-bad-code.jpg" width="480" height="360" alt=""/>
+     <section  style="display: flex" class="slide">
+        <blockquote style="position: relative; top: -1.75em; width: 75%; margin: auto;">
+            <p>Good, clean code is like a good book - it's easy to understand and a pleasure to read.</p>
+        </blockquote>
     </section>
 
     <section class="slide">
-        <img class="cover" src="images/ugly-house.png" width="350" alt=""/>
-        <img class="cover next" src="images/pretty-house.jpg" width="480"alt=""/>
+        <img class="cover" src="images/kick-myself.jpg" width="400" alt=""/>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/good-bad-code.jpg" width="550" alt=""/>
     </section>
 
     <section class="slide">
         <h3><strong>The Boy Scout Rule:</strong></h3>
         <h3>Leave the campground cleaner than you found it</h3>
         <img class="cover" src="images/campfire.png" width="500" alt=""/>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/ugly-house.png" width="350" alt=""/>
     </section>
 
     <section class="slide">
@@ -138,7 +151,7 @@
                     </code>
                 </pre>
 
-                <pre style="font-size: 14px;" class="language-javascript line-numbers">
+                <pre style="font-size: 14px;" class="language-javascript line-numbers next">
                     <code>
                         {
                             ✅ const firstDate = new Date('2014-09-16');
@@ -271,43 +284,20 @@
     </section>
 
     <section class="slide">
-        <h2>Naming</h2>
-
-        <ul>
-            <li>
-                Stick to English
-
-                <pre class="language-javascript line-numbers">
-                    <code>
-                        ✅ showModal()
-                    </code>
-              </pre>
-
-              <pre class="language-javascript line-numbers">
-                    <code>
-                        ❌ showOkienkoModalne()
-                    </code>
-              </pre>
-            </li>
-        </ul>
-
-    </section>
-
-    <section class="slide">
         <h2>Functions</h2>
 
         <ul>
-            <li class="next">
+            <li>
                 Be small
                  <ul>
-                  <li class="next">Under 20 lines</li>
-                  <li class="next">One or two level of indentation</li>
+                  <li>Under 20 lines</li>
+                  <li>One or two level of indentation</li>
                 </ul>
             </li>
-            <li class="next">Do one thing</li>
+            <li>Do one thing</li>
         </ul>
 
-        <h3 class="next">Solution: <strong>Decompose!</strong></h3>
+        <h3>Solution: <strong>Decompose!</strong></h3>
 
     </section>
 
@@ -394,9 +384,9 @@
             <li>
                 Arguments
                 <ul>
-                    <li class="next">As few arguments as possible</li>
-                    <li class="next">3 or more might be converted into object or list</li>
-                    <li class="next">Avoid flag arguments</li>
+                    <li>As few arguments as possible</li>
+                    <li>3 or more might be converted into object or list</li>
+                    <li>Avoid flag arguments</li>
                 </ul>
             </li>
         </ul>
@@ -408,9 +398,34 @@
           <li>
               Errors
               <ul>
-                <li class="next">Prefer exceptions to returning error codes</li>
-                <li class="next">Error handling is one thing</li>
-                <li class="next">Extract try/catch blocks</li>
+                <li class="next">Throw exceptions</li>
+              </ul>
+          </li>
+        </ul>
+
+          <pre style="font-size: 12px;" class="language-javascript line-numbers next">
+            <code>
+                ❌
+                console.log(e)
+            </code>
+          </pre>
+
+          <pre style="font-size: 12px;" class="language-javascript line-numbers next">
+            <code>
+                ✅
+                throw new Error(e)
+            </code>
+          </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Functions</h2>
+        <ul>
+          <li>
+              Errors
+              <ul>
+                <li>Error handling is one thing</li>
+                <li>Extract try/catch blocks</li>
               </ul>
           </li>
         </ul>
@@ -426,8 +441,8 @@
         <h2>Classes</h2>
 
         <ul>
-            <li class="next">Be small (responsibility-wise)</li>
-            <li class="next">Follow Single Responsibility Principle</li>
+            <li>Be small (responsibility-wise)</li>
+            <li>Follow Single Responsibility Principle</li>
         </ul>
     </section>
 
@@ -460,10 +475,9 @@
               Good comments:
               <ul>
                 <li>Legal comments</li>
-                <li class="next">Explanation of intent</li>
-                  <li class="next">Warning comments</li>
-                  <li class="next">TODO comments</li>
-                  <li class="next">JSDOC comments</li>
+                <li>Explanation of intent</li>
+                <li>Warning comments</li>
+                <li>TODO comments</li>
               </ul>
           </li>
 
@@ -477,8 +491,8 @@
               Bad comments:
               <ul>
                 <li>Redundant comments</li>
-                <li class="next">Misplaced comments</li>
-                <li class="next">JSDOC in non-public code</li>
+                <li>Misplaced comments</li>
+                <li>JSDOC in non-public code</li>
               </ul>
           </li>
 
@@ -486,7 +500,44 @@
     </section>
 
     <section class="slide">
-        <img class="cover" src="images/sheldon-swim.jpg" width="500" alt=""/>
+        <h2>TDD</h2>
+        <ul>
+            <li>Tests come first</li>
+            <li>
+                <span style="color: red;">Red</span> => <span style="color: green">Green</span> => Refactor
+            </li>
+            <li>One assert per test</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>TDD</h2>
+        <ul>
+            <li>F.I.R.S.T.
+                <ul>
+                    <li>Fast</li>
+                    <li>Independent</li>
+                    <li>Repeatable</li>
+                    <li>Self-validating</li>
+                    <li>Timely</li>
+                </ul>
+
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Team rules</h2>
+        <ul>
+            <li>Come up with consistency</li>
+            <li>Compromise</li>
+            <li>Do code review</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/ugly-house.png" width="350" alt=""/>
+        <img class="cover next" src="images/pretty-house.jpg" width="480"alt=""/>
     </section>
 
     <section class="slide">
