@@ -2,7 +2,7 @@
 
 ## Preview
 
-<https://malyfko.github.io/warsawjs-meetup-59-clean-code>
+<https://malyfko.github.io/the-importance-of-clean-code>
 
 ## License
 
